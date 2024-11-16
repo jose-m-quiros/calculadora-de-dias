@@ -1,32 +1,35 @@
-// Función para calcular los días transcurridos desde la fecha actual
-function calcularDiasTranscurridos(fecha) {
-    const hoy = new Date();
-    const fechaIngreso = new Date(fecha);
-    const diferencia = hoy - fechaIngreso; // Diferencia en milisegundos
-    return Math.floor(diferencia / (1000 * 60 * 60 * 24)); // Convertir milisegundos a días
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // Mostrar la fecha actual automáticamente
+    const fechaActual = new Date();
+    const fechaActualFormateada = formatearFecha(fechaActual);
+    document.getElementById("fecha-actual").textContent = `Fecha Actual: ${fechaActualFormateada}`;
 
-// Función para calcular la fecha futura sumando días
-function calcularFechaFutura(dias) {
-    const hoy = new Date();
-    hoy.setDate(hoy.getDate() + dias);
-    return hoy.toLocaleDateString("es-ES");
-}
+    // Función para calcular la fecha futura
+    document.getElementById("calcularFechaFutura").addEventListener("click", function () {
+        const diasInput = document.getElementById("dias").value;
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Calcular los días transcurridos desde la fecha actual
-    const fechaIngreso = "2024-11-16"; // Esta sería la fecha ingresada, puedes cambiarla según lo necesario
-    const diasTranscurridos = calcularDiasTranscurridos(fechaIngreso);
-    document.getElementById("dias-transcurridos").textContent = `Días transcurridos: ${diasTranscurridos}`;
+        if (diasInput && diasInput > 0) {
+            const diasFuturos = parseInt(diasInput, 10);
+            const fechaFutura = new Date();
+            fechaFutura.setDate(fechaFutura.getDate() + diasFuturos); // Sumamos los días
 
-    // Calcular la fecha futura sumando una cantidad de días
-    document.getElementById("calcularFechaFutura").addEventListener("click", () => {
-        const diasInput = parseInt(document.getElementById("dias").value);
-        if (!isNaN(diasInput)) {
-            const fechaFutura = calcularFechaFutura(diasInput);
-            document.getElementById("fecha-futura").textContent = `Fecha futura: ${fechaFutura}`;
+            // Formateamos la fecha futura
+            const fechaFuturaFormateada = formatearFecha(fechaFutura);
+            document.getElementById("fecha-futura").textContent = `Fecha Futura: ${fechaFuturaFormateada}`;
         } else {
             alert("Por favor, ingresa un número válido de días.");
         }
     });
+
+    // Función para formatear fecha con mayúscula inicial
+    function formatearFecha(fecha) {
+        return fecha.toLocaleDateString('es-ES', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }).replace(/\b\w+/g, function (palabra) {
+            return palabra.charAt(0).toUpperCase() + palabra.slice(1);
+        });
+    }
 });
