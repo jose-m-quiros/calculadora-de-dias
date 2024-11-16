@@ -1,0 +1,115 @@
+/* Estilos Generales */
+body {
+    background: linear-gradient(45deg, #111, #333); /* Fondo en gradiente para mayor profundidad */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 60px;
+    margin: 0;
+    height: 100vh;
+}
+
+h1 {
+    color: #ff4d4d; /* Rojo suave para el título */
+    font-size: 3.5em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: 30px;
+}
+
+/* Estilo de los elementos del formulario */
+label {
+    color: #e60000;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+input {
+    background-color: #222;
+    color: white;
+    border: 2px solid #e60000;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    width: 250px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.dias {
+    font-size: 2em !important;
+    font-weight: bold;
+}
+
+/* Sombra y aumento de tamaño al hacer foco */
+input:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 15px rgba(230, 0, 0, 0.8);
+    transform: scale(1.05);
+    outline: none;
+}
+
+/* Botón de acción */
+button {
+    background-color: #e60000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/* Efecto en el botón cuando se pasa el cursor */
+button:hover {
+    background-color: #ff4d4d;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+    transform: translateY(-5px);
+}
+
+/* Efecto cuando el botón es presionado */
+button:active {
+    background-color: #e60000;
+    transform: translateY(3px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Texto de la fecha futura */
+#fecha-futura {
+    font-size: 1.8em;
+    color: #ff6666;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    margin-top: 20px;
+}
+
+/* Animación de los elementos */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplicar animación a los elementos */
+h1, label, input, button, #fecha-futura {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Estilo del contenedor de la página */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
